@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+
 app = FastAPI()
 
 # CORS(Cross Origin Resource Sharing) allows requests from the frontend
@@ -19,3 +20,5 @@ app.add_middleware(
 @app.get('/')
 async def read_root():
     return {'message': 'Hello World'}
+
+# TODO - add endpoint to use scraper
