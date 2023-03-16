@@ -2,15 +2,17 @@ import bs4
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime as dt
-from model import *
+from app.model import *
+
 
 # Find links to all races for the year
 def get_races(url: str) -> list[Race]:
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    link_elements = soup.select('a[data-roundtext]')
+    page = requests.get(url) # Request HTML page
+    soup = BeautifulSoup(page.content, 'html.parser') # Parse HTML with beautiful soup
+    link_elements = soup.select('a[data-roundtext]') # use CSS selector to find all link elements with attribute 'data-roundtext'
 
     races = []
+    # get data for each race
     for link in link_elements:
         data = {}
         data['round'] = link['data-roundtext']
@@ -26,9 +28,10 @@ def get_races(url: str) -> list[Race]:
 def get_events_info(url: str) -> list[Event]:
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
-    time_table = soup.find('div', class_='f1-race-hub--timetable-listings')
+    time_table = soup.find('div', class_='f1-race-hub--timetable-listings') # find first div with given class name
 
     events = []
+    # pull data from all child tags of timetable div
     for event in time_table.children:
         if type(event) is bs4.element.Tag:
             #print(event.attrs)
@@ -46,13 +49,14 @@ def get_events_info(url: str) -> list[Event]:
             event_data = Event(**data)
             events.append(event_data)
             
-    events.reverse()
+    events.reverse() # order events from earliest to latest (practice 1, ..., race)
     return events
 
 def main():
     url = 'https://www.formula1.com/en/racing/2023.html'
     race_calendar = get_races(url)
-    return
+    return race_calendar
 
+# if running this file independently, run main()
 if __name__ == '__main__':
     main()

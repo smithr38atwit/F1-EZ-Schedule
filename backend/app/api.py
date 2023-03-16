@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.model import *
+from app.scraper import main
 
 
 app = FastAPI()
 
-# CORS(Cross Origin Resource Sharing) allows requests from the frontend
+# CORS(Cross Origin Resource Sharing) allows the JavaScript on the frontend to send requests to the backend
 origins = [
     "http://127.0.0.1:5500" # origin when hosting with Live Server
 ]
@@ -19,6 +21,9 @@ app.add_middleware(
 
 @app.get('/')
 async def read_root():
-    return {'message': 'Hello World'}
+    return {'message': 'Server is running'}
 
-# TODO - add endpoint to use scraper
+@app.get('/calendar')
+def get_current_calendar():
+    race_calendar: list[Race] = main()
+    return race_calendar
