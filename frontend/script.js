@@ -27,13 +27,13 @@ async function getCalendar() {
     document.querySelector(".date-time span:nth-child(2)").textContent = start.toLocaleTimeString();
     document.querySelector(".date-time span:nth-child(3)").textContent = end.toLocaleTimeString();
 
-    for (let i = 1; i < next_race["events"]; i++) {
+    for (let i = 1; i < next_race["events"].length; i++) {
         let event = next_race["events"][i];
         let event_start = new Date(event["start_time_local"]);
         let event_end = new Date(event["end_time_local"]);
         document.querySelector(`#event${i} h4`).textContent = event["event"];
-        document.querySelector(`#event${i} span:nth-child(1)`).textContent = event_start.toDateString();
-        document.querySelector(`#event${i}span:nth-child(2)`).textContent = event_start.toLocaleTimeString();
-        document.querySelector(`#event${i} span:nth-child(3)`).textContent = event_end.toLocaleTimeString();
+        document.querySelector(`#event${i} span:nth-of-type(1)`).textContent = event_start.toDateString();
+        document.querySelector(`#event${i} span:nth-of-type(2)`).textContent = event_start.toLocaleTimeString();
+        document.querySelector(`#event${i} span:nth-of-type(3)`).textContent = event_end.toLocaleTimeString();
     }
 }
