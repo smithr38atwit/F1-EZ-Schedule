@@ -6,10 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 EZ Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 
-<body>
-
+<body onload="getCalendar()">
+    <main>
+        <div class="next-race">
+            <h1 class="location">Location</h1>
+            <h2 class="date-time"><span>Date</span> | <span>Time</span> - <span>Time</span></h2>
+            <ul class="events">
+                <li class="event" id="event1">
+                    <h4>event 4</h4>
+                    <span>Date</span> | <span>Time</span> - <span>Time</span>
+                </li>
+                <li class="event" id="event2">
+                    <h4>event 3</h4>
+                    <span>Date</span> | <span>Time</span> - <span>Time</span>
+                </li>
+                <li class="event" id="event3">
+                    <h4>event 2</h4>
+                    <span>Date</span> | <span>Time</span> - <span>Time</span>
+                </li>
+                <li class="event" id="event4">
+                    <h4>event 1</h4>
+                    <span>Date</span> | <span>Time</span> - <span>Time</span>
+                </li>
+            </ul>
+        </div>
+    </main>
 </body>
 
 </html>

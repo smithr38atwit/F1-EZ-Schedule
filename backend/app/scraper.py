@@ -5,8 +5,11 @@ from datetime import datetime as dt
 from app.model import *
 
 
-# Find links to all races for the year
-def get_races(url: str) -> list[Race]:
+url = 'https://www.formula1.com/en/racing/2023.html'
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
+
+# Get info for all races for the year
+def calendar() -> list[Race]:
     page = requests.get(url) # Request HTML page
     soup = BeautifulSoup(page.content, 'html.parser') # Parse HTML with beautiful soup
     link_elements = soup.select('a[data-roundtext]') # use CSS selector to find all link elements with attribute 'data-roundtext'
@@ -49,14 +52,9 @@ def get_events_info(url: str) -> list[Event]:
             event_data = Event(**data)
             events.append(event_data)
             
-    events.reverse() # order events from earliest to latest (practice 1, ..., race)
     return events
 
-def main():
-    url = 'https://www.formula1.com/en/racing/2023.html'
-    race_calendar = get_races(url)
-    return race_calendar
 
 # if running this file independently, run main()
 if __name__ == '__main__':
-    main()
+    calendar()

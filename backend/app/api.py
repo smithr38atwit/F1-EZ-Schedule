@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.model import *
-from app.scraper import main
+from app.scraper import calendar
 
 
 app = FastAPI()
@@ -25,5 +25,4 @@ async def read_root():
 
 @app.get('/calendar')
 def get_current_calendar():
-    race_calendar: list[Race] = main()
-    return race_calendar
+    return calendar()
