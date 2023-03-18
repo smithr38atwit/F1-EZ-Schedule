@@ -2,7 +2,7 @@ import bs4
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime as dt
-from app.model import *
+from app.model import * # for testing standalone file: from model import *
 
 
 url = 'https://www.formula1.com/en/racing/2023.html'
@@ -20,7 +20,9 @@ def calendar() -> list[Race]:
         data = {}
         data['round'] = link['data-roundtext']
         data['location'] = link['data-racecountryname']
-        data['events'] = get_events_info('https://www.formula1.com' + link['href'])
+        events, circuit = get_events_info('https://www.formula1.com' + link['href'])
+        data['circuit'] = circuit
+        data['events'] = events
 
         race = Race(**data)
         races.append(race)
@@ -28,7 +30,7 @@ def calendar() -> list[Race]:
     return races
 
 # Find and parse race info
-def get_events_info(url: str) -> list[Event]:
+def get_events_info(url: str) -> tuple[list[Event], str]:
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     time_table = soup.find('div', class_='f1-race-hub--timetable-listings') # find first div with given class name
@@ -52,7 +54,8 @@ def get_events_info(url: str) -> list[Event]:
             event_data = Event(**data)
             events.append(event_data)
             
-    return events
+    circuit = soup.select('.f1-race-hub--timetable-links-wrapper p')[0].text
+    return (events, circuit)
 
 
 # if running this file independently, run main()

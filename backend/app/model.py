@@ -14,4 +14,5 @@ class Event(BaseModel):
 class Race(BaseModel):
     round: str
     location: str
+    circuit: str
     events: list[Event]
