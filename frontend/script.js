@@ -28,6 +28,7 @@ async function getCalendar() {
     const timeOptions = { hour: 'numeric', minute: 'numeric' }
     const start = new Date(next_race["events"][0]["start_time_local"]);
     document.querySelector(".country").textContent = next_race["location"];
+    document.querySelector(".circuit").textContent = next_race["circuit"];
     document.querySelector(".date").textContent = start.toDateString(undefined, dateOptions);
     document.querySelector(".time").textContent = start.toLocaleTimeString(undefined, timeOptions);
 
