@@ -41,7 +41,7 @@ def get_events_info(url: str) -> tuple[list[Event], str]:
         if type(event) is bs4.element.Tag:
             #print(event.attrs)
             data = {}
-            data['event'] = event['class'][1][3:] # event['class']=['row', 'js-event'] -> [1]='js-event' -> [3:]='event'
+            data['event'] = soup.select(f".{event['class'][1]} p")[1].text#event['class'][1][3:] # event['class']=['row', 'js-event'] -> [1]='js-event' -> [3:]='event'
 
             start_time = dt.strptime(event['data-start-time']+event['data-gmt-offset'], '%Y-%m-%dT%H:%M:%S%z') # ex) '2023-03-04T18:00:00' + '+03:00'
             data['start_time_track'] = start_time
