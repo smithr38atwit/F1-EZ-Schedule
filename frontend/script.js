@@ -29,7 +29,7 @@ async function getCalendar() {
     const start = new Date(next_race["events"][0]["start_time_local"]);
     document.querySelector(".country").textContent = next_race["location"];
     document.querySelector(".circuit").textContent = next_race["circuit"];
-    document.querySelector(".date").textContent = start.toDateString(undefined, dateOptions);
+    document.querySelector(".date").textContent = start.toLocaleDateString(undefined, dateOptions);
     document.querySelector(".time").textContent = start.toLocaleTimeString(undefined, timeOptions);
 
     // Set elements for each event to data
@@ -37,7 +37,7 @@ async function getCalendar() {
         let event = next_race["events"][i];
         let event_start = new Date(event["start_time_local"]);
         document.querySelector(`.event:nth-child(${i}) .event-name`).textContent = event["event"];
-        document.querySelector(`.event:nth-child(${i}) .event-date`).textContent = event_start.toDateString(undefined, dateOptions);
+        document.querySelector(`.event:nth-child(${i}) .event-date`).textContent = event_start.toLocaleDateString(undefined, dateOptions);
         document.querySelector(`.event:nth-child(${i}) .event-time`).textContent = event_start.toLocaleTimeString(undefined, timeOptions);
     }
 }
