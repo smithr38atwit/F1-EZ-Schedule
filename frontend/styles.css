@@ -54,10 +54,12 @@ nav {
     font-weight: 500;
     font-size: 16px;
 }
-.nav-button:hover {
-    /* TODO: define hover property */
+/* TODO: define hover property: .nav-button:hover {} */
+.selected {
+    background-color: #212124;
+    border-radius: 5px;
+    color: inherit;
 }
-/* TODO: set selected tab to have background */
 
 /* General content box*/
 .content {
@@ -88,7 +90,6 @@ nav {
     padding: 24px 24px 32px;
 }
 .datetime {
-
     font-size: 24px;
 }
 .country {
@@ -122,6 +123,4 @@ nav {
     color: inherit;
     font-size: 16px;
 }
-.calendar-button:hover {
-    /* TODO: define hover property */
-}
+/* TODO: define hover property: .calendar-button:hover {} */

@@ -1,5 +1,12 @@
 const api = "http://127.0.0.1:8000";
 
+function onLoad() {
+    getCalendar()
+
+    // Select first tab as default
+    document.querySelector("nav a:first-child").click()
+}
+
 async function getCalendar() {
     // Fetch calendar data from API
     const response = await fetch(api + "/calendar", { method: "GET" });
@@ -42,9 +49,12 @@ async function getCalendar() {
     }
 }
 
-function onLoad() {
-    getCalendar()
-
-    // Select first tab as default
-    document.querySelector("nav a:first-child").click()
+// Switch selected nav tab on click
+function navClick(element) {
+    let navTabs = document.getElementsByClassName("nav-button");
+    // Remove selected class from all tabs
+    for (let tab of navTabs) {
+        tab.className = tab.className.replace(" selected", "");
+    }
+    element.classList.add("selected")
 }
