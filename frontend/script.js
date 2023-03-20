@@ -9,10 +9,17 @@ function onLoad() {
 
 async function getCalendar() {
     // Fetch calendar data from API
-    const response = await fetch(api + "/calendar", { method: "GET" });
-    console.debug(`GET ${api}/calendar: `)
-    const data = await response.json();
-    console.debug(data);
+    let data;
+    try {
+        const response = await fetch(api + "/calendar", { method: "GET" });
+        console.debug(`GET ${api}/calendar: `)
+        data = await response.json();
+        console.debug(data);
+    } catch (error) {
+        alert("Could not get event data")
+        console.debug(error);
+        return;
+    }
 
     // Sort races into completed (races ends before current date) and upcoming (race ends after current date)
     let completed_races = []; upcoming_races = [];
