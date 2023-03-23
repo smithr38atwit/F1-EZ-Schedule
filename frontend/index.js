@@ -1,0 +1,30 @@
+import getCalendar from "./scripts/race-calendar.js";
+
+
+/* ----- Event Listeners ----- */
+document.getElementById('up-next').addEventListener('load', onLoad());
+const navButtons = document.querySelectorAll('.nav-button');
+for (let element of navButtons) {
+    element.addEventListener('click', navClick(element));
+}
+
+
+/* ----- Event Functions ----- */
+function onLoad() {
+    // Select first tab as default
+    document.querySelector("nav a:first-child").click();
+    console.log('load', document.querySelector("nav a:first-child"));
+
+    getCalendar();
+}
+
+// Switch selected nav tab on click
+function navClick(element) {
+    console.log(element)
+    let navTabs = document.getElementsByClassName("nav-button");
+    // Remove selected class from all tabs
+    for (let tab of navTabs) {
+        tab.classList.remove('selected');
+    }
+    element.classList.add("selected");
+}

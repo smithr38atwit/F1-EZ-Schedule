@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 EZ Schedule</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="index.js" type="module"></script>
+    <script src="scripts/race-calendar.js" type="module"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap" rel="stylesheet">
 </head>
 
-<body onload="onLoad()">
+<body>
 
     <main>
         <header>
@@ -22,9 +23,9 @@
             <h1 class="title">EZ APP</h1>
         </header>
         <nav class="row">
-            <a class="nav-button dark" href="#up-next" onclick="navClick(this)">Up Next</a>
-            <a class="nav-button dark" href="#standing" onclick="navClick(this)">Standings</a>
-            <a class="nav-button dark" href="#news" onclick="navClick(this)">News</a>
+            <a class="nav-button dark" href="#up-next">Up Next</a>
+            <a class="nav-button dark" href="#standing">Standings</a>
+            <a class="nav-button dark" href="#news">News</a>
         </nav>
         <section class="tabs">
             <div id="up-next" class="content up-next default">

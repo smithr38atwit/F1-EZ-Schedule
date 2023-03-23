@@ -1,12 +1,5 @@
 const api = "http://127.0.0.1:8000";
 
-function onLoad() {
-    getCalendar()
-
-    // Select first tab as default
-    document.querySelector("nav a:first-child").click()
-}
-
 async function getCalendar() {
     // Fetch calendar data from API
     let data;
@@ -22,10 +15,11 @@ async function getCalendar() {
     }
 
     // Sort races into completed (races ends before current date) and upcoming (race ends after current date)
-    let completed_races = []; upcoming_races = [];
+    let completed_races = [];
+    let upcoming_races = [];
     data.forEach(race => {
         let end_dt = Date.parse(race["events"][0].end_time_local);
-        let current_dt = Date.now()
+        let current_dt = Date.now();
 
         if (end_dt < current_dt) {
             completed_races.push(race);
@@ -38,8 +32,8 @@ async function getCalendar() {
     console.debug("Next race: ", next_race);
 
     // Set location and race date elements to data
-    const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' }
-    const timeOptions = { hour: 'numeric', minute: 'numeric' }
+    const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
+    const timeOptions = { hour: 'numeric', minute: 'numeric' };
     const start = new Date(next_race["events"][0]["start_time_local"]);
     document.querySelector(".country").textContent = next_race["location"];
     document.querySelector(".circuit").textContent = next_race["circuit"];
@@ -56,12 +50,4 @@ async function getCalendar() {
     }
 }
 
-// Switch selected nav tab on click
-function navClick(element) {
-    let navTabs = document.getElementsByClassName("nav-button");
-    // Remove selected class from all tabs
-    for (let tab of navTabs) {
-        tab.className = tab.className.replace(" selected", "");
-    }
-    element.classList.add("selected")
-}
+export default getCalendar;
