@@ -1,75 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F1 EZ Schedule</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap" rel="stylesheet">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body onload="onLoad()">
-
+  <body onload="onLoad()">
     <main>
-        <header>
-            <img src="images/f1-logo.svg" alt="F1 Logo">
-            <h1 class="title">EZ APP</h1>
-        </header>
-        <nav class="row">
-            <a class="nav-button dark" href="#up-next" onclick="navClick(this)">Up Next</a>
-            <a class="nav-button dark" href="#standing" onclick="navClick(this)">Standings</a>
-            <a class="nav-button dark" href="#news" onclick="navClick(this)">News</a>
-        </nav>
-        <section class="tabs">
-            <div id="up-next" class="content up-next default">
-                <div class="race-info">
-                    <div class="row event-name">Race</div>
-                    <div class="row datetime">
-                        <span class="date">Date</span>
-                        <span class="time">Time</span>
-                    </div>
-                    <div class="row location">
-                        <span class="country">Country</span>
-                        <span class="circuit dark">Circuit</span>
-                    </div>
-                </div>
-                <table class="events">
-                    <tr class="event">
-                        <td class="event-name">Name</td>
-                        <td class="event-date">Date</td>
-                        <td class="event-time">Time</td>
-                    </tr>
-                    <tr class="event">
-                        <td class="event-name">Name</td>
-                        <td class="event-date">Date</td>
-                        <td class="event-time">Time</td>
-                    </tr>
-                    <tr class="event">
-                        <td class="event-name">Name</td>
-                        <td class="event-date">Date</td>
-                        <td class="event-time">Time</td>
-                    </tr>
-                    <tr class="event">
-                        <td class="event-name">Name</td>
-                        <td class="event-date">Date</td>
-                        <td class="event-time">Time</td>
-                    </tr>
-                </table>
-                <button id="add-to-cal" class="calendar-button">Add Dates to Calendar</button>
+      <header>
+        <img src="images/f1-logo.svg" alt="F1 Logo" />
+        <h1 class="title">EZ APP</h1>
+      </header>
+      <nav class="row">
+        <a class="nav-button dark" href="#up-next" onclick="navClick(this)"
+          >Up Next</a
+        >
+        <a class="nav-button dark" href="#standing" onclick="navClick(this)"
+          >Standings</a
+        >
+        <a class="nav-button dark" href="#news" onclick="navClick(this)"
+          >News</a
+        >
+      </nav>
+      <section class="tabs">
+        <div id="up-next" class="content up-next default">
+          <div class="race-info">
+            <div class="row event-name">Race</div>
+            <div class="row datetime">
+              <span class="date">Date</span>
+              <span class="time">Time</span>
             </div>
-            <!-- TODO: implement standings tab -->
-            <div id="standing" class="content standings"></div>
-            <!-- TODO: implement news tab -->
-            <div id="news" class="content news"></div>
-        </section>
+            <div class="row location">
+              <span class="country">Country</span>
+              <span class="circuit dark">Circuit</span>
+            </div>
+          </div>
+          <table class="events">
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+          </table>
+          <button id="add-to-cal" class="calendar-button">
+            Add Dates to Calendar
+          </button>
+        </div>
+
+        <!-- TODO: implement standings tab -->
+        <div id="standing" class="content standings">
+          <div class="race-info">
+            <div class="row event-name">WDC Leader 👑</div>
+            <div class="row datetime">
+              <span class="date">M. Verstappen 🇳🇱</span>
+              <span class="time">44 pts</span>
+            </div>
+            <div class="row location">
+              <span class="circuit dark">Oracle Red Bull Racing</span>
+            </div>
+          </div>
+          <table class="events">
+            <tr class="event">
+              <td class="event-name">2nd</td>
+              <td class="driver-name">S. Perez 🇲🇽</td>
+              <td class="team-name">RBR</td>
+              <td class="event-time">43</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">3rd</td>
+              <td class="driver-name">F. Alonso 🇪🇸</td>
+              <td class="team-name">AM</td>
+              <td class="event-time">30</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">4th</td>
+              <td class="driver-name">C. Sainz 🇪🇸</td>
+              <td class="team-name">SF</td>
+              <td class="event-time">20</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">5th</td>
+              <td class="driver-name">L. Hamilton 🇬🇧</td>
+              <td class="team-name">MER</td>
+              <td class="event-time">20</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">6th</td>
+              <td class="driver-name">G. Russell 🇬🇧</td>
+              <td class="team-name">MER</td>
+              <td class="event-time">20</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- TODO: implement news tab -->
+        <div id="news" class="content news"></div>
+      </section>
     </main>
-
-</body>
-
+  </body>
 </html>
