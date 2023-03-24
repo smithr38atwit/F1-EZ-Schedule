@@ -2,10 +2,10 @@ import getCalendar from "./scripts/race-calendar.js";
 
 
 /* ----- Event Listeners ----- */
-document.getElementById('up-next').addEventListener('load', onLoad());
+window.onload = onLoad;
 const navButtons = document.querySelectorAll('.nav-button');
 for (let element of navButtons) {
-    element.addEventListener('click', navClick(element));
+    element.addEventListener('click', () => navClick(element));
 }
 
 
