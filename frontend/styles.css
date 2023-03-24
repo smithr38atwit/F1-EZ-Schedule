@@ -54,7 +54,13 @@ nav {
     font-weight: 500;
     font-size: 16px;
 }
-/* TODO: define hover property: .nav-button:hover {} */
+
+.nav-button:hover {
+    color: #FFFFFF;
+    background-color: #28282a;
+    border-radius: 5px;
+}
+
 .selected {
     background-color: #212124;
     border-radius: 5px;
@@ -123,3 +129,14 @@ nav {
     font-size: 16px;
 }
 /* TODO: define hover property: .calendar-button:hover {} */
+
+.driver-name {
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.team-name {
+    text-align: left;
+    padding-right: 2rem;
+    color: #76767C;
+}
