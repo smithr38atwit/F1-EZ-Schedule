@@ -6,7 +6,6 @@ from app.model import * # for testing standalone file: from model import *
 
 
 url = 'https://www.formula1.com/en/racing/2023.html'
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
 
 # Get info for all races for the year
 def calendar() -> list[Race]:

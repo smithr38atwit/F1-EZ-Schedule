@@ -13,14 +13,12 @@ for (let element of navButtons) {
 function onLoad() {
     // Select first tab as default
     document.querySelector("nav a:first-child").click();
-    console.log('load', document.querySelector("nav a:first-child"));
 
     getCalendar();
 }
 
 // Switch selected nav tab on click
 function navClick(element) {
-    console.log(element)
     let navTabs = document.getElementsByClassName("nav-button");
     // Remove selected class from all tabs
     for (let tab of navTabs) {
