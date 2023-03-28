@@ -2,7 +2,7 @@ import bs4
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime as dt
-from app.model import * # for testing standalone file: from model import *
+from app.model import Event, Race # for testing standalone file: from model import *
 
 
 url = 'https://www.formula1.com/en/racing/2023.html'

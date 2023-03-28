@@ -16,3 +16,11 @@ class Race(BaseModel):
     location: str
     circuit: str
     events: list[Event]
+
+
+# Standings for one driver
+class DriverStandings(BaseModel):
+    name: str
+    nationality: str
+    team: str
+    points: float
