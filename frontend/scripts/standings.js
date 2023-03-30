@@ -14,29 +14,42 @@ async function getStandings() {
         return;
     }
 
+    // TODO: Fill in WDC leader info first
+
     // Create table from standings data
     const table = document.createElement('table');
-    table.className = 'events';
+    table.className = 'events scroll';
 
-    for (let i = 2; i <= data.length; i++) {
+    for (let i = 1; i < data.length; i++) {
         const tr = table.insertRow();
+        tr.className = 'event';
 
         // Pos
         const td1 = tr.insertCell();
-        td1.appendChild(document.createTextNode(i));
+        td1.appendChild(document.createTextNode(i + 1));
 
         // Name
         const td2 = tr.insertCell();
         const name = data[i]['name'];
-        let first = name.substring(0, str.indexOf(' '));
-        let last = name.substring(str.indexOf(' ') + 1);
+        let first = name.substring(0, name.indexOf(' '));
+        let last = name.substring(name.indexOf(' ') + 1);
         first = first.charAt(0) + '.';
         td2.appendChild(document.createTextNode(`${first} ${last}`));
 
         // Team
+        const td3 = tr.insertCell();
+        td3.appendChild(document.createTextNode(data[i]['team']));
 
         // Points
+        const td4 = tr.insertCell();
+        let points = data[i]['points'];
+        if (points % 1 == 0) {
+            points = Math.trunc(points);
+        }
+        td4.appendChild(document.createTextNode(points));
     }
+
+    document.getElementById('standings').appendChild(table);
 }
 
 export default getStandings
