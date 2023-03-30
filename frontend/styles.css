@@ -1,4 +1,7 @@
 /* Prequisites */
+* {
+    box-sizing: border-box;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -9,9 +12,6 @@ body {
     width: 100vw;
 
     background: #141415 url(images/f1-logo-large.svg) no-repeat center 20%;
-}
-* {
-    box-sizing: border-box;
 }
 
 /* General */
@@ -139,4 +139,17 @@ nav {
     text-align: left;
     padding-right: 2rem;
     color: #76767C;
+}
+
+
+/* --- Standings Tab --- */
+
+#standings table {
+    display: block;
+    overflow: auto;
+    max-height: 300px;
+}
+#standings table::-webkit-scrollbar {
+    /* TODO: add custom scrollbar style (if desired) */
+    display: none;
 }

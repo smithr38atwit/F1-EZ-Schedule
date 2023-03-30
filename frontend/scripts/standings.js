@@ -14,7 +14,18 @@ async function getStandings() {
         return;
     }
 
-    // TODO: Fill in WDC leader info first
+    // WDC leader info
+    const name = data[0]['name'];
+    let first = name.substring(0, name.indexOf(' '));
+    let last = name.substring(name.indexOf(' ') + 1);
+    first = first.charAt(0) + '.';
+    document.getElementById('leader-name').textContent = `${first} ${last}`;
+    let points = data[0]['points'];
+    if (points % 1 == 0) {
+        points = Math.trunc(points);
+    }
+    document.getElementById('leader-pts').textContent = `${points} pts`;
+    document.getElementById('leader-team').textContent = data[0]['team'];
 
     // Create table from standings data
     const table = document.createElement('table');
