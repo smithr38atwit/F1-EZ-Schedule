@@ -145,6 +145,48 @@ nav {
 }
 
 
+/* Full Race Calendar */
+
+.schedule {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(20, 20, 20, .9);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.schedule-content {
+    display: grid;
+    gap: 1rem;
+}
+
+.close-btn {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    top: 20px;
+    right: 45px;
+    cursor: pointer;
+}
+
+.race-info-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #3A3A3A;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+}
+
+
 /* --- Standings Tab --- */
 
 #standings table {

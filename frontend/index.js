@@ -8,6 +8,8 @@ const navButtons = document.querySelectorAll('.nav-button');
 for (let element of navButtons) {
     element.addEventListener('click', () => navClick(element));
 }
+document.getElementById('full-schedule-btn').addEventListener('click', () => document.getElementById('full-schedule').style.height = '100%');
+document.getElementById('sched-close-btn').addEventListener('click', () => document.getElementById('full-schedule').style.height = '0');
 
 
 /* ----- Event Functions ----- */

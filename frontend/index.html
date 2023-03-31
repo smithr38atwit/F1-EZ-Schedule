@@ -60,7 +60,7 @@
             <td class="event-time">Time</td>
           </tr>
         </table>
-        <button id="add-to-cal" class="calendar-button">View Full Schedule</button>
+        <button id="full-schedule-btn" class="calendar-button">View Full Schedule</button>
       </div>
 
       <div id="standings" class="content standings">
@@ -81,8 +81,14 @@
       <div id="news" class="content news"></div>
     </section>
 
-    <!-- TODO: implement full schedule -->
-    <section id="full-schedule" class="schedule"></section>
+    <section id="full-schedule" class="schedule">
+      <button id="sched-close-btn" class="close-btn" type="button">&times;</button>
+      <div class="schedule-content">
+        <article class="race-info-full">Race 1</article>
+        <article class="race-info-full">Race 2</article>
+        <article class="race-info-full">Race 3</article>
+      </div>
+    </section>
   </main>
 </body>
 
