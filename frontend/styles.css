@@ -123,12 +123,15 @@ nav {
     padding: 14px 0;
     border-style: none;
     border-radius: 100px;
-    background: #B62A2A;
+    background-color: #B62A2A;
 
     color: inherit;
     font-size: 16px;
 }
-/* TODO: define hover property: .calendar-button:hover {} */
+.calendar-button:hover {
+    background-color: #cf3e3e;
+    cursor: pointer;
+}
 
 .driver-name {
     padding-left: 1rem;
