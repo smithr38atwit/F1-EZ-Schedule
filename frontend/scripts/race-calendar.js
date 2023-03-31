@@ -1,18 +1,10 @@
-const api = "http://127.0.0.1:9000";
+import get from "./api.js";
+
 
 async function getCalendar() {
     // Fetch calendar data from API
-    let data;
-    try {
-        const response = await fetch(api + "/calendar", { method: "GET" });
-        console.debug(`GET ${api}/calendar: `)
-        data = await response.json();
-        console.debug(data);
-    } catch (error) {
-        alert("Could not get event data")
-        console.debug(error);
-        return;
-    }
+    let data = await get('calendar');
+    if (!data) return;
 
     // Sort races into completed (races ends before current date) and upcoming (race ends after current date)
     let completed_races = [];

@@ -1,18 +1,10 @@
-const api = "http://127.0.0.1:9000";
+import get from "./api.js";
+
 
 async function getStandings() {
     // Fetch standings data from API
-    let data;
-    try {
-        const response = await fetch(api + "/standings", { method: "GET" });
-        console.debug(`GET ${api}/standings: `)
-        data = await response.json();
-        console.debug(data);
-    } catch (error) {
-        alert("Could not get event data")
-        console.debug(error);
-        return;
-    }
+    let data = await get('standings');
+    if (!data) return;
 
     // WDC leader info
     const name = data[0]['name'];

@@ -3,6 +3,7 @@ import getStandings from "./scripts/standings.js";
 
 
 /* ----- Event Listeners ----- */
+
 window.onload = onLoad;
 const navButtons = document.querySelectorAll('.nav-button');
 for (let element of navButtons) {
@@ -13,6 +14,7 @@ document.getElementById('sched-close-btn').addEventListener('click', () => docum
 
 
 /* ----- Event Functions ----- */
+
 function onLoad() {
     // Select first tab as default
     document.querySelector("nav a:first-child").click();
