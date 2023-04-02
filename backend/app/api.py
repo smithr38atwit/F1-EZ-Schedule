@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.model import *
 from app.web_scrapers.race_calendar import calendar
 from app.web_scrapers.driver_standings import standings
+from app.web_scrapers.news import news
 
 
 app = FastAPI()
@@ -31,3 +32,7 @@ def get_current_calendar():
 @app.get('/standings')
 def get_driver_standings():
     return standings()
+
+@app.get('/news')
+def get_recent_news():
+    return news()

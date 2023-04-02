@@ -2,7 +2,8 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
-# Events during race weekend (e.g. practice, quali, race)
+# ------ Race Calendar ------
+
 class Event(BaseModel):
     event: str
     start_time_track: datetime
@@ -10,7 +11,6 @@ class Event(BaseModel):
     end_time_track: datetime
     end_time_local: datetime
 
-# Grand Prix / full race weekend
 class Race(BaseModel):
     round: str
     location: str
@@ -18,9 +18,23 @@ class Race(BaseModel):
     events: list[Event]
 
 
-# Standings for one driver
+# ------ Driver Standings ------
+
 class DriverStandings(BaseModel):
     name: str
     nationality: str
     team: str
     points: float
+
+
+# ------ News ------
+
+class Image(BaseModel):
+    src: str
+    alt: str
+
+class NewsArticle(BaseModel):
+    link: str
+    image: Image
+    title: str
+    posted: int
