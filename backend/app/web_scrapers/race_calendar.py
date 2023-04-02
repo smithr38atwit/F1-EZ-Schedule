@@ -2,7 +2,7 @@ import bs4
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime as dt
-from app.model import Event, Race # for testing standalone file: from model import *
+from app.model import Event, Race
 
 
 url = 'https://www.formula1.com/en/racing/2023.html'
@@ -38,9 +38,8 @@ def get_events_info(url: str) -> tuple[list[Event], str]:
     # pull data from all child tags of timetable div
     for event in time_table.children:
         if type(event) is bs4.element.Tag:
-            #print(event.attrs)
             data = {}
-            data['event'] = soup.select(f".{event['class'][1]} p")[1].text#event['class'][1][3:] # event['class']=['row', 'js-event'] -> [1]='js-event' -> [3:]='event'
+            data['event'] = soup.select(f".{event['class'][1]} p")[1].text
 
             start_time = dt.strptime(event['data-start-time']+event['data-gmt-offset'], '%Y-%m-%dT%H:%M:%S%z') # ex) '2023-03-04T18:00:00' + '+03:00'
             data['start_time_track'] = start_time
