@@ -42,6 +42,7 @@
 }
 
 .full-container {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     background-color: #141415;
