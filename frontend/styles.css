@@ -165,8 +165,12 @@ nav {
 }
 
 .schedule-content {
-    display: grid;
+    display: flex;
     gap: 1rem;
+    margin-top: 16rem;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
 }
 
 .close-btn {
@@ -250,6 +254,18 @@ nav {
         bottom: 0;
         opacity: 0;
     }
+}
+
+.full-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #141415;
+    border-style: solid;
+    border-color: #3A3A3A;
+}
+
+.full-left, .full-right {
+    align-self: stretch;
 }
 
 

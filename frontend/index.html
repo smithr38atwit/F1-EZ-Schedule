@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F1 EZ Schedule</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" type="module"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F1 EZ Schedule</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="index.js" type="module"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <main>
-    <header>
-      <img src="images/f1-logo.svg" alt="F1 Logo" />
-      <h1 class="title">EZ APP</h1>
-    </header>
-    <nav class="row">
-      <a class="nav-button dark" href="#up-next">Up Next</a>
-      <a class="nav-button dark" href="#standings">Standings</a>
-      <a class="nav-button dark" href="#news">News</a>
-    </nav>
-    <section class="tabs">
-      <div id="up-next" class="content up-next default">
-        <div class="race-info">
-          <div class="row event-name">Race</div>
-          <div class="row datetime">
-            <span class="date">Date</span>
-            <span class="time">Time</span>
+  <body>
+    <main>
+      <header>
+        <img src="images/f1-logo.svg" alt="F1 Logo" />
+        <h1 class="title">EZ APP</h1>
+      </header>
+      <nav class="row">
+        <a class="nav-button dark" href="#up-next">Up Next</a>
+        <a class="nav-button dark" href="#standings">Standings</a>
+        <a class="nav-button dark" href="#news">News</a>
+      </nav>
+      <section class="tabs">
+        <div id="up-next" class="content up-next default">
+          <div class="race-info">
+            <div class="row event-name">Race</div>
+            <div class="row datetime">
+              <span class="date">Date</span>
+              <span class="time">Time</span>
+            </div>
+            <div class="row location">
+              <span class="country">Country</span>
+              <span class="circuit dark">Circuit</span>
+            </div>
           </div>
-          <div class="row location">
-            <span class="country">Country</span>
-            <span class="circuit dark">Circuit</span>
-          </div>
+          <table class="events">
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+            <tr class="event">
+              <td class="event-name">Name</td>
+              <td class="event-date">Date</td>
+              <td class="event-time">Time</td>
+            </tr>
+          </table>
+          <button id="full-schedule-btn" class="calendar-button">
+            View Full Schedule
+          </button>
         </div>
-        <table class="events">
-          <tr class="event">
-            <td class="event-name">Name</td>
-            <td class="event-date">Date</td>
-            <td class="event-time">Time</td>
-          </tr>
-          <tr class="event">
-            <td class="event-name">Name</td>
-            <td class="event-date">Date</td>
-            <td class="event-time">Time</td>
-          </tr>
-          <tr class="event">
-            <td class="event-name">Name</td>
-            <td class="event-date">Date</td>
-            <td class="event-time">Time</td>
-          </tr>
-          <tr class="event">
-            <td class="event-name">Name</td>
-            <td class="event-date">Date</td>
-            <td class="event-time">Time</td>
-          </tr>
-        </table>
-        <button id="full-schedule-btn" class="calendar-button">View Full Schedule</button>
-      </div>
 
-      <div id="standings" class="content standings">
-        <div class="race-info">
-          <div class="row event-name">WDC Leader 👑</div>
-          <div class="row datetime">
-            <span id="leader-name" class="date"></span>
-            <span id="leader-pts" class="time"></span>
+        <div id="standings" class="content standings">
+          <div class="race-info">
+            <div class="row event-name">WDC Leader 👑</div>
+            <div class="row datetime">
+              <span id="leader-name" class="date"></span>
+              <span id="leader-pts" class="time"></span>
+            </div>
+            <div class="row location">
+              <span id="leader-team" class="circuit dark"></span>
+            </div>
           </div>
-          <div class="row location">
-            <span id="leader-team" class="circuit dark"></span>
-          </div>
+          <!-- Table created by script -->
         </div>
-        <!-- Table created by script -->
-      </div>
 
       <div id="news" class="content news">
         <div id="latest-news">
@@ -135,17 +139,53 @@
       </div>
     </section>
 
-    <section id="full-schedule" class="schedule">
-      <button id="sched-close-btn" class="close-btn" type="button">&times;</button>
-      <div class="schedule-content">
-        <article class="race-info-full">Race 1</article>
-        <article class="race-info-full">Race 2</article>
-        <article class="race-info-full">Race 3</article>
-      </div>
-    </section>
-  </main>
+      <section id="full-schedule" class="schedule">
+        <button id="sched-close-btn" class="close-btn" type="button">
+          &times;
+        </button>
+        <div class="schedule-content">
+          <!-- <article class="race-info-full">
+            <div class="race-info"></div>
+            <div class="content"
+          </article> -->
+            <article class="full-container">
+              <div class="race-info full full-left">
+                <div class="row event-name">Race</div>
+                <div class="row datetime">
+                  <span class="date">Date</span>
+                  <span class="time">Time</span>
+                </div>
+                <div class="row location">
+                  <span class="country">Country</span>
+                  <span class="circuit dark">Circuit</span>
+                </div>
+              </div>
+              <table class="events full full-right">
+                <tr class="event">
+                  <td class="event-name">Name</td>
+                  <td class="event-date">Date</td>
+                  <td class="event-time">Time</td>
+                </tr>
+                <tr class="event">
+                  <td class="event-name">Name</td>
+                  <td class="event-date">Date</td>
+                  <td class="event-time">Time</td>
+                </tr>
+                <tr class="event">
+                  <td class="event-name">Name</td>
+                  <td class="event-date">Date</td>
+                  <td class="event-time">Time</td>
+                </tr>
+                <tr class="event">
+                  <td class="event-name">Name</td>
+                  <td class="event-date">Date</td>
+                  <td class="event-time">Time</td>
+                </tr>
+              </table>
+            </article>
+      </section>
+    </main>
 
-  <div id="snackbar" class="snackbar"></div>
-</body>
-
+    <div id="snackbar" class="snackbar"></div>
+  </body>
 </html>
