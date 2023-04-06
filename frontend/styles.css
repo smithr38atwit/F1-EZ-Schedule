@@ -301,6 +301,14 @@ nav {
     overflow: hidden;
 }
 
+.large-news:hover .large-news-text {
+    transform: translateY(-5%);
+}
+
+.large-news:hover img {
+    transform: scale(1.1);
+}
+
 .large-news::after {
     position: absolute;
     content: '';
@@ -312,7 +320,9 @@ nav {
 }
 
 .large-news img {
+    display: block;
     width: 100%;
+    transition: transform .35s;
 }
 
 .large-news-text {
@@ -320,6 +330,7 @@ nav {
     translate: 0 -100%;
     z-index: 1;
     padding: 16px;
+    transition: transform .35s;
 }
 
 .large-news-text span {
@@ -357,7 +368,6 @@ nav {
 
 .small-news img {
     width: 70px;
-    height: 70px;
     border-radius: 8px;
 }
 

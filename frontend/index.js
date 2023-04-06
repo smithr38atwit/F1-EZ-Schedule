@@ -1,5 +1,6 @@
 import getCalendar from "./scripts/race-calendar.js";
 import getStandings from "./scripts/standings.js";
+import getNews from "./scripts/news.js";
 
 
 /* ----- Event Listeners ----- */
@@ -21,6 +22,7 @@ function onLoad() {
 
     getCalendar();
     getStandings();
+    getNews();
 }
 
 // Switch selected nav tab on click
