@@ -1,0 +1,12 @@
+/* --- Standings Tab --- */
+/* Note: several classes from upnext.css are also applied to the standings tab */
+
+#standings table {
+    display: block;
+    overflow: auto;
+    max-height: 450px;
+}
+
+#standings table::-webkit-scrollbar {
+    display: none;
+}

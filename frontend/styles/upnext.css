@@ -1,0 +1,70 @@
+/* ------ Race info ------ */
+
+.race-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14.5px;
+
+    background-color: #1A1A1C;
+    padding: 24px 24px 30px;
+    margin-bottom: 8px;
+}
+
+.datetime {
+    font-size: 24px;
+}
+
+.country {
+    font-size: 20px;
+}
+
+.circuit {
+    font-size: 14px;
+}
+
+
+/* ------ Events info ------ */
+
+.events {
+    margin: 0 24px;
+    font-size: 14px;
+    border-spacing: 0 24px;
+}
+
+.event-date {
+    text-align: center;
+}
+
+.event-time {
+    text-align: right;
+}
+
+
+/* ------ Add dates to calendar button ------ */
+
+.calendar-button {
+    margin: 8px 24px 32px;
+    padding: 14px 0;
+    border-style: none;
+    border-radius: 100px;
+    background-color: #B62A2A;
+
+    color: inherit;
+    font-size: 16px;
+}
+
+.calendar-button:hover {
+    background-color: #cf3e3e;
+    cursor: pointer;
+}
+
+.driver-name {
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.team-name {
+    text-align: left;
+    padding-right: 2rem;
+    color: #76767C;
+}
