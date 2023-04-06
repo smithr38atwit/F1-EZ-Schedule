@@ -18,6 +18,11 @@ body {
 .dark, .event-name {
     color: #76767C;
 }
+
+.special {
+    color: #FFC453;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -192,10 +197,9 @@ nav {
 #standings table {
     display: block;
     overflow: auto;
-    max-height: 300px;
+    max-height: 450px;
 }
 #standings table::-webkit-scrollbar {
-    /* TODO: add custom scrollbar style (if desired) */
     display: none;
 }
 
@@ -246,4 +250,106 @@ nav {
         bottom: 0;
         opacity: 0;
     }
+}
+
+
+/* ------ News ------ */
+
+#news {
+    max-height: 600px;
+    overflow-y: auto;
+}
+#news::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Latest --- */
+
+#latest-news {
+    padding: 16px 16px 8px;
+}
+
+#news h2 {
+    font-weight: 500;
+    font-size: 14px;
+    color: #76767C;
+    margin-top: 0;
+}
+
+.large-news {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.large-news::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .95));
+}
+
+.large-news img {
+    width: 100%;
+}
+
+.large-news-text {
+    position: absolute;
+    translate: 0 -100%;
+    z-index: 1;
+    padding: 16px;
+}
+
+.large-news-text span {
+    margin-right: 10px;
+}
+
+.large-news-text p {
+    margin: 8px auto 0;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+/* --- Other Stories --- */
+
+#other-news {
+    padding: 8px 16px 16px;
+}
+
+.small-news {
+    display: flex;
+    padding: 8px;
+    margin: 12px 0;
+    border: 1px solid #1F1F1F;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    gap: 10px;
+    max-height: 88px;
+    overflow: auto;
+}
+.small-news::-webkit-scrollbar {
+    display: none;
+}
+
+.small-news img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+}
+
+.small-news-text p {
+    font-size: 12px;
+    margin: 0 0 4px;
+}
+
+.small-news-text .posted {
+    font-size: 12px;
 }
