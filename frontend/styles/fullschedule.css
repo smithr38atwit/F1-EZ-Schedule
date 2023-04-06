@@ -47,8 +47,12 @@
     background-color: #141415;
     border-style: solid;
     border-color: #3A3A3A;
+    margin-bottom: 0px;
+    border-radius: 16px;
 }
 
 .full-left, .full-right {
+    width: 320px;
     align-self: stretch;
+    margin-bottom: 0px;
 }
