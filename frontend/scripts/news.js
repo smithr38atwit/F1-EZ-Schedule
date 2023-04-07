@@ -22,14 +22,15 @@ async function getNews() {
         if (posted < 1) {
             posted = Math.round(posted * 60);
             timeUnit = 'Minute' + (posted === 1 ? '' : 's');
-        }
-        posted = Math.round(posted);
-        // Change unit to singular if one hour, or convert to days if 24 or more hours
-        if (posted === 1) {
-            timeUnit = 'Hour';
-        } else if (posted >= 24) {
-            posted = Math.round(posted / 24);
-            timeUnit = 'Day' + (posted === 1 ? '' : 's');
+        } else {
+            posted = Math.round(posted);
+            // Change unit to singular if one hour, or convert to days if 24 or more hours
+            if (posted === 1) {
+                timeUnit = 'Hour';
+            } else if (posted >= 24) {
+                posted = Math.round(posted / 24);
+                timeUnit = 'Day' + (posted === 1 ? '' : 's');
+            }
         }
 
         // Latest news article
