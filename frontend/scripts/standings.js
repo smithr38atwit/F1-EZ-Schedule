@@ -1,6 +1,6 @@
 import get from "./api.js";
 
-
+// FIXME: last name gets cut off if it has multiple words
 async function getStandings() {
     // Fetch standings data from API
     let data = await get('standings');

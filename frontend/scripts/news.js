@@ -1,6 +1,5 @@
 import get from "./api.js";
 
-
 async function getNews() {
     // Fetch news data from API
     let data = await get('news');
@@ -11,7 +10,19 @@ async function getNews() {
 
     for (let i = 0; i < data.length; i++) {
         const article = data[i];
-        let posted = Math.round((Date.now() - article['posted']) / 3600000);
+        let posted = (Date.now() - article['posted']) / 3600000;
+        let timeUnit = 'Hours';
+        if (posted < 1) {
+            posted = Math.round(posted * 60);
+            timeUnit = 'Minute' + (posted === 1 ? '' : 's');
+        }
+        posted = Math.round(posted);
+        if (posted === 1) {
+            timeUnit = 'Hour';
+        } else if (posted >= 24) {
+            posted = Math.round(posted / 24);
+            timeUnit = 'Day' + (posted === 1 ? '' : 's');
+        }
 
         if (i === 0) {
             // Create link element as article container
@@ -40,7 +51,7 @@ async function getNews() {
             // Create time posted text
             const postedText = document.createElement('span');
             postedText.classList.add('dark');
-            postedText.textContent = `${posted} Hours Ago`;
+            postedText.textContent = `${posted} ${timeUnit} Ago`;
             text.appendChild(postedText);
 
             // Create article title
@@ -78,7 +89,7 @@ async function getNews() {
         // Create time posted text
         const postedText = document.createElement('div');
         postedText.classList.add('dark', 'posted');
-        postedText.textContent = `${posted} Hours Ago`;
+        postedText.textContent = `${posted} ${timeUnit} Ago`;
         text.appendChild(postedText);
 
         container.appendChild(text);
