@@ -100,3 +100,26 @@ nav {
 .content:target {
     display: flex;
 }
+
+
+/* ------ Loading shimmer ------ */
+
+@keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+.loader {
+    border-radius: 8px;  
+    width: 128px;
+    height: 10px;
+    background: #212121;
+  
+    animation : shimmer 2s infinite linear;
+    background: linear-gradient(to right, #1d1d1d 4%, #383838 25%, #4b4b4b 36%);
+    background-size: 1000px 100%;
+}
