@@ -16,6 +16,9 @@ document.getElementById('sched-close-btn').addEventListener('click', () => docum
 
 /* ----- Event Functions ----- */
 
+/**
+ * Calls initialization functions 
+ */
 function onLoad() {
     // Select first tab as default
     document.querySelector("nav a:first-child").click();
@@ -25,7 +28,10 @@ function onLoad() {
     getNews();
 }
 
-// Switch selected nav tab on click
+/**
+ * Switches selected nav tab on click
+ * @param {Element} element The selected navigation tab
+ */
 function navClick(element) {
     let navTabs = document.getElementsByClassName("nav-button");
     // Remove selected class from all tabs

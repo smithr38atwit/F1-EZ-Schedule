@@ -4,13 +4,16 @@ from app.model import DriverStandings
 
 url = 'https://www.formula1.com/en/results.html/2023/drivers.html'
 
+# Scrapes drivers standings data from F1 website
 def standings():
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
 
+    # Find first table on page (which contains drivers standings data) and parse through
     table = soup.find_all('table')
     standings: list[DriverStandings] = []
     if len(table) != 0:
+        # Split each table row into desired data
         for row in soup.find('tbody').find_all('tr'):
             data: list[str] = row.text.split('\n\n')
             name = data[2].split()

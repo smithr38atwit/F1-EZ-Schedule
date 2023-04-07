@@ -5,12 +5,15 @@ from app.model import NewsArticle
 
 url = 'https://www.formula1.com/en/latest/all.news.html'
 
+# Scrapes latest news data from F1 website
 def news():
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
 
+    # Select first 10 news link elements
     news: list[NewsArticle] = []
     news_elements = soup.select('.f1-latest-listing--grid-item>a', limit=10)
+    # Parse data for each news element
     for element in news_elements:
         data = {}
         data['link'] = 'https://www.formula1.com' + element['href']
@@ -25,6 +28,7 @@ def news():
 
     return news
 
+# Follows link to news article and retrieves the time posted data
 def getTimePosted(link: str) -> int:
     page = requests.get(link)
     soup = BeautifulSoup(page.content, 'html.parser')

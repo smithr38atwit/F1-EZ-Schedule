@@ -1,6 +1,9 @@
 import get from "./api.js";
 
-// FIXME: last name gets cut off if it has multiple words
+
+/**
+ * Retrieves drivers current standings data from API and renders it
+ */
 async function getStandings() {
     // Fetch standings data from API
     let data = await get('standings');
@@ -54,5 +57,6 @@ async function getStandings() {
 
     document.getElementById('standings').appendChild(table);
 }
+
 
 export default getStandings

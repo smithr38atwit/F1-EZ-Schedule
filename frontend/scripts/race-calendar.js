@@ -1,10 +1,14 @@
 import get from "./api.js";
 
 
+/**
+ * Retrieves the full race calendar data from API and renders it
+ */
 async function getCalendar() {
     // Fetch calendar data from API
     let data = await get('calendar');
     if (!data) return;
+    console.log("Data is ", typeof data)
 
     // Sort races into completed (races ends before current date) and upcoming (race ends after current date)
     let completed_races = [];
@@ -68,6 +72,11 @@ async function getCalendar() {
     makeFullSchedule(data);
 }
 
+
+/**
+ * Creates the full schedule view
+ * @param {Object[]} races Full race schedule
+ */
 function makeFullSchedule(races) {
     for (let race of races) {
         // Create race info
@@ -130,5 +139,6 @@ function makeFullSchedule(races) {
         document.getElementById('full-schedule-content').appendChild(container);
     }
 }
+
 
 export default getCalendar;

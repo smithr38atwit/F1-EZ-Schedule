@@ -21,18 +21,22 @@ app.add_middleware(
 )
 
 
+# Root endpoint for testing/pinging
 @app.get('/')
 async def read_root():
     return {'message': 'Server is running'}
 
+# Calls race schedule scraper
 @app.get('/calendar')
 def get_current_calendar():
     return calendar()
 
+# Calls drivers standings scraper
 @app.get('/standings')
 def get_driver_standings():
     return standings()
 
+# Calls latest news scraper
 @app.get('/news')
 def get_recent_news():
     return news()

@@ -1,5 +1,9 @@
 import get from "./api.js";
 
+
+/**
+ * Retrieves most recent news articles from API and renders them
+ */
 async function getNews() {
     // Fetch news data from API
     let data = await get('news');
@@ -10,19 +14,25 @@ async function getNews() {
 
     for (let i = 0; i < data.length; i++) {
         const article = data[i];
+
+        // Convert time from ms to hours
         let posted = (Date.now() - article['posted']) / 3600000;
         let timeUnit = 'Hours';
+        // Convert to minutes if less than 1 hour
         if (posted < 1) {
             posted = Math.round(posted * 60);
             timeUnit = 'Minute' + (posted === 1 ? '' : 's');
         }
         posted = Math.round(posted);
+        // Change unit to singular if one hour, or convert to days if 24 or more hours
         if (posted === 1) {
             timeUnit = 'Hour';
         } else if (posted >= 24) {
             posted = Math.round(posted / 24);
             timeUnit = 'Day' + (posted === 1 ? '' : 's');
         }
+
+        // Latest news article
 
         if (i === 0) {
             // Create link element as article container
@@ -64,6 +74,8 @@ async function getNews() {
             continue;
         }
 
+        // Other news articles
+
         // Create link element as article container
         const container = document.createElement('a');
         container.href = article['link'];
@@ -96,5 +108,6 @@ async function getNews() {
         otherNews.appendChild(container);
     }
 }
+
 
 export default getNews
