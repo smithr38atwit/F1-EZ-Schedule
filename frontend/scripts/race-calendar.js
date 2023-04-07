@@ -40,6 +40,71 @@ async function getCalendar() {
         document.querySelector(`.event:nth-child(${i}) .event-date`).textContent = event_start.toLocaleDateString(undefined, dateOptions);
         document.querySelector(`.event:nth-child(${i}) .event-time`).textContent = event_start.toLocaleTimeString(undefined, timeOptions);
     }
+
+    makeFullSchedule(data);
+}
+
+function makeFullSchedule(races) {
+    for (let race of races) {
+        // Create race info
+
+        const container = document.createElement('article');
+        container.classList.add('race-container');
+
+        const raceInfo = document.createElement('div');
+        raceInfo.classList.add('race-info', 'full-left');
+
+        const round = document.createElement('div');
+        round.classList.add('dark', 'round-num');
+        round.textContent = race['round'];
+        raceInfo.appendChild(round);
+
+        const country = document.createElement('div');
+        country.classList.add('country');
+        country.textContent = race['location'];
+        raceInfo.appendChild(country);
+
+        const circuit = document.createElement('div');
+        circuit.classList.add('dark');
+        circuit.textContent = race['circuit'];
+        raceInfo.appendChild(circuit);
+
+        container.appendChild(raceInfo);
+
+        // Create grand prix events info
+
+        const table = document.createElement('table');
+        table.classList.add('events', 'full-right');
+
+        const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
+        const timeOptions = { hour: 'numeric', minute: 'numeric' };
+        for (let event of race['events']) {
+            const tr = document.createElement('tr')
+            tr.classList.add('event');
+
+            const name = document.createElement('td');
+            name.classList.add('event-name');
+            name.textContent = event["event"];
+            tr.appendChild(name);
+
+            const event_start = new Date(event["start_time_local"]);
+
+            const date = document.createElement('td');
+            date.classList.add('event-date');
+            date.textContent = event_start.toLocaleDateString(undefined, dateOptions);
+            tr.appendChild(date);
+
+            const time = document.createElement('td');
+            time.classList.add('event-time');
+            time.textContent = event_start.toLocaleTimeString(undefined, timeOptions);
+            tr.appendChild(time)
+
+            table.appendChild(tr);
+        }
+
+        container.appendChild(table);
+        document.getElementById('full-schedule-content').appendChild(container);
+    }
 }
 
 export default getCalendar;
