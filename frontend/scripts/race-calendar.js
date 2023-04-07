@@ -20,25 +20,49 @@ async function getCalendar() {
         }
     });
     // Next race is first in upcoming races list
-    let next_race = upcoming_races[0]
-    console.debug("Next race: ", next_race);
+    let nextRace = upcoming_races[0]
+    console.debug("Next race: ", nextRace);
 
     // Set location and race date elements to data
+
     const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
     const timeOptions = { hour: 'numeric', minute: 'numeric' };
-    const start = new Date(next_race["events"][0]["start_time_local"]);
-    document.querySelector(".country").textContent = next_race["location"];
-    document.querySelector(".circuit").textContent = next_race["circuit"];
-    document.querySelector(".date").textContent = start.toLocaleDateString(undefined, dateOptions);
-    document.querySelector(".time").textContent = start.toLocaleTimeString(undefined, timeOptions);
+    const start = new Date(nextRace["events"][0]["start_time_local"]);
+
+    const country = document.querySelector(".country")
+    country.classList.remove('loader');
+    country.textContent = nextRace["location"];
+
+    const circuit = document.querySelector(".circuit")
+    circuit.classList.remove('loader');
+    circuit.textContent = nextRace["circuit"];
+
+    const date = document.querySelector(".date")
+    date.classList.remove('loader');
+    date.textContent = start.toLocaleDateString(undefined, dateOptions);
+
+    const time = document.querySelector(".time")
+    time.classList.remove('loader');
+    time.textContent = start.toLocaleTimeString(undefined, timeOptions);
 
     // Set elements for each event to data
-    for (let i = 1; i < next_race["events"].length; i++) {
-        let event = next_race["events"][i];
-        let event_start = new Date(event["start_time_local"]);
-        document.querySelector(`.event:nth-child(${i}) .event-name`).textContent = event["event"];
-        document.querySelector(`.event:nth-child(${i}) .event-date`).textContent = event_start.toLocaleDateString(undefined, dateOptions);
-        document.querySelector(`.event:nth-child(${i}) .event-time`).textContent = event_start.toLocaleTimeString(undefined, timeOptions);
+
+    let name, eventDate, eventTime;
+    for (let i = 1; i < nextRace["events"].length; i++) {
+        let event = nextRace["events"][i];
+        let eventStart = new Date(event["start_time_local"]);
+
+        name = document.querySelector(`.event:nth-child(${i}) .event-name`)
+        name.classList.remove('loader');
+        name.textContent = event["event"];
+
+        eventDate = document.querySelector(`.event:nth-child(${i}) .event-date`)
+        eventDate.classList.remove('loader');
+        eventDate.textContent = eventStart.toLocaleDateString(undefined, dateOptions);
+
+        eventTime = document.querySelector(`.event:nth-child(${i}) .event-time`)
+        eventTime.classList.remove('loader');
+        eventTime.textContent = eventStart.toLocaleTimeString(undefined, timeOptions);
     }
 
     makeFullSchedule(data);
