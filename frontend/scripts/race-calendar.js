@@ -8,7 +8,6 @@ async function getCalendar() {
     // Fetch calendar data from API
     let data = await get('calendar');
     if (!data) return;
-    console.log("Data is ", typeof data)
 
     // Sort races into completed (races ends before current date) and upcoming (race ends after current date)
     let completed_races = [];
