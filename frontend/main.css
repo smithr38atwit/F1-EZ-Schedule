@@ -16,8 +16,8 @@ html, body {
 
 body {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: auto;
+    width: auto;
 
     background: #141415 url(images/f1-logo-large.svg) no-repeat center 20%;
 }
