@@ -14,17 +14,23 @@ async function getStandings() {
     let first = name.substring(0, name.indexOf(' '));
     let last = name.substring(name.indexOf(' ') + 1);
     first = first.charAt(0) + '.';
-    document.getElementById('leader-name').textContent = `${first} ${last}`;
+    let el = document.getElementById('leader-name');
+    el.classList.remove('loader');
+    el.textContent = `${first} ${last}`;
     let points = data[0]['points'];
     if (points % 1 == 0) {
         points = Math.trunc(points);
     }
-    document.getElementById('leader-pts').textContent = `${points} pts`;
-    document.getElementById('leader-team').textContent = data[0]['team'];
+    el = document.getElementById('leader-pts');
+    el.classList.remove('loader');
+    el.textContent = `${points} pts`;
+    el = document.getElementById('leader-team');
+    el.classList.remove('loader');
+    el.textContent = data[0]['team'];
 
     // Create table from standings data
     const table = document.createElement('table');
-    table.className = 'events scroll';
+    table.className = 'standings-table events scroll';
 
     for (let i = 1; i < data.length; i++) {
         const tr = table.insertRow();
@@ -55,7 +61,9 @@ async function getStandings() {
         td4.appendChild(document.createTextNode(points));
     }
 
-    document.getElementById('standings').appendChild(table);
+    const standings = document.getElementById('standings');
+    standings.removeChild(document.getElementById('loader-table'))
+    standings.appendChild(table);
 }
 
 

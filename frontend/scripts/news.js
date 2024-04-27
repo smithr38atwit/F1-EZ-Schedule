@@ -9,6 +9,12 @@ async function getNews() {
     let data = await get('news');
     if (!data) return;
 
+    // Remove loaders
+    const loaders = document.getElementsByClassName('temp-loader');
+    while (loaders[0]) {
+        loaders[0].parentNode.removeChild(loaders[0]);
+    }
+
     const latestNews = document.getElementById('latest-news');
     const otherNews = document.getElementById('other-news');
 

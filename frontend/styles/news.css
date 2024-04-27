@@ -6,6 +6,13 @@
     display: none;
 }
 
+.temp-loader {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
 /* ------ Latest ------ */
 
 #latest-news {
