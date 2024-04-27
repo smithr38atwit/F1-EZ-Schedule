@@ -1,8 +1,9 @@
-from pydantic import BaseModel
 from datetime import datetime
 
+from pydantic import BaseModel
 
 # ------ Race Calendar ------
+
 
 class Event(BaseModel):
     event: str
@@ -10,6 +11,7 @@ class Event(BaseModel):
     start_time_local: datetime
     end_time_track: datetime
     end_time_local: datetime
+
 
 class Race(BaseModel):
     round: str
@@ -20,6 +22,7 @@ class Race(BaseModel):
 
 # ------ Driver Standings ------
 
+
 class DriverStandings(BaseModel):
     name: str
     nationality: str
@@ -29,9 +32,11 @@ class DriverStandings(BaseModel):
 
 # ------ News ------
 
+
 class Image(BaseModel):
     src: str
     alt: str
+
 
 class NewsArticle(BaseModel):
     link: str
