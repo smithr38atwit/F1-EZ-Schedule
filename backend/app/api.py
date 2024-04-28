@@ -10,6 +10,7 @@ app = FastAPI()
 # CORS(Cross Origin Resource Sharing) allows the JavaScript on the frontend to send requests to the backend
 origins = [
     "http://127.0.0.1:5500",  # origin when hosting with Live Server
+    "http://127.0.0.1:3000",  # origin when hosting with Live Preview
 ]
 app.add_middleware(
     CORSMiddleware,

@@ -1,5 +1,4 @@
 #news {
-    max-height: 600px;
     overflow-y: auto;
 }
 #news::-webkit-scrollbar {

@@ -8,7 +8,6 @@
 .standings-table {
     display: block;
     overflow: auto;
-    max-height: 450px;
 }
 
 .loader-table {

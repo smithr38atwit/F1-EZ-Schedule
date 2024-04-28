@@ -94,6 +94,8 @@ nav {
 
     font-weight: 500;
 
+    min-height: 445px;
+    max-height: 75vh;
     overflow: hidden;
 }
 
