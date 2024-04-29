@@ -10,6 +10,7 @@ Run setup.ps1 or:
 
 1. Create a virtual environment with `python -m venv .venv` (Python 3.11 is recommended)
 2. Install required packages with `pip install -r backend/requirements.txt`
+3. Activate virtual environment
 
 ## Running
 
