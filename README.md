@@ -9,8 +9,8 @@ The F1 EZ App is simple, elegant solution to checking the latest and most fital 
 Run setup.ps1 or:
 
 1. Create a virtual environment with `python -m venv .venv` (Python 3.11 is recommended)
-2. Install required packages with `pip install -r backend/requirements.txt`
-3. Activate virtual environment
+2. Activate virtual environment
+3. Install required packages with `pip install -r backend/requirements.txt`
 
 ## Running
 
