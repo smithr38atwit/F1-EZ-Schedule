@@ -1,6 +1,6 @@
 # F1 EZ Schedule App
 
-The F1 EZ App is simple, elegant solution to checking the latest and most fital info in Formula 1. It provides an easy way to see when the next race is, the current drivers standings, and the latest news.
+The F1 EZ App is simple, elegant solution to checking the latest and most vital info in Formula 1. It provides an easy way to see when the next race is, the current drivers standings, and the latest news.
 
 *All information displayed is scraped from [the official Formula 1 website](https://www.formula1.com/).*
 
