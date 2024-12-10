@@ -18,13 +18,13 @@ def standings():
     if len(table) != 0:
         # Split each table row into desired data
         for row in soup.find("tbody").find_all("tr"):
-            data: list[str] = row.text.split("\n\n")
-            name = data[2].split()
+            data = row.contents
+            name = data[1].find_next("a").contents
             row_data = {}
-            row_data["name"] = f"{name[0]} {name[1]}"
-            row_data["nationality"] = data[3].strip()
-            row_data["team"] = data[4].strip()
-            row_data["points"] = float(data[5].strip())
+            row_data["name"] = f"{name[0].text} {name[2].text}"
+            row_data["nationality"] = data[2].text
+            row_data["team"] = data[3].text
+            row_data["points"] = float(data[4].text)
 
             row = DriverStandings(**row_data)
             standings.append(row)
